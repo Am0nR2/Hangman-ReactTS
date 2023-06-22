@@ -1,0 +1,177 @@
+*,*::before,*::after{
+  box-sizing: border-box
+}
+body{
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+/* Hangman Body Parts */
+
+.hangman{
+  margin: 2em;
+  
+}
+.top{
+  width: 102.5px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.col{
+  width: 5px;
+  height: 250px;
+  background-color: black;
+  margin: 0 auto;
+  position: relative;
+
+}
+.bottom{
+  height: 5px;
+  width: 200px;
+  margin: 0 auto;
+  background-color: black;
+}
+.rope{
+  width: 5px;
+  height: 30px;
+  background-color: black;
+  position: absolute;
+  left: 100px;
+}
+.head{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid black;
+  position: absolute;
+  top: 30px;
+  left: 77.5px;
+}
+
+.body{
+  width: 5px;
+  height: 80px;
+  position: absolute;
+  background-color: black;
+  top: 80px;
+  left: 100px
+}
+
+.left-arm, .right-arm{
+  width: 50px;
+  height: 5px;
+  background-color: black;
+  position: absolute
+}
+.left-arm{
+ top: 100px;
+  left: 53px;
+ transform: rotate(-30deg);
+}
+.right-arm{
+  top: 100px;
+  left: 100px;
+  transform: rotate(30deg);
+}
+.left-leg, 
+.right-leg{
+  width: 50px;
+  height: 5px;
+  background-color: black;
+  position: absolute
+}
+.left-leg{
+ top: 175px;
+ left: 60px;
+ transform: rotate(-50deg);
+}
+.right-leg{
+  top: 175px;
+  left: 94px;
+  transform: rotate(50deg);
+}
+/* Keyboard Part */
+
+.keys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  width: 300px;
+  margin: 0 auto;
+  gap: 1em;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.keyboard-item {
+  border: 1px solid rgb(4, 4, 77);
+  color: rgb(4, 4, 77);
+  background-color: rgb(228, 228, 241);
+  padding: 0.5em 0.75em;
+  font-size: 1.25rem;
+  font-family: bold;
+  display: inline;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px black;
+}
+
+.keyboard-item:hover {
+  background-color: rgb(218, 218, 238)
+}
+.keyboard-item:active {
+  transform: scale(0.9);
+  box-shadow: inset 0px 0px 8px black;
+
+}
+.un-letters{
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 1.25em;
+  margin: 2em 0;
+}
+
+.letters-area{
+  width: 20px;
+  text-align: center;
+}
+.unknown-lt{
+  margin-bottom: 0.5em;
+}
+.unknown-bd{
+  width: 100%;
+  height: 3px;
+  background-color: black;
+}
+
+button{
+  padding: 0.5em 1em;
+  background-color: orange;
+  font-weight: bold;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  font-size: 1.25em;
+}
+button:active{
+  transform: scale(0.9);
+}
+button:disabled{
+  background-color: rgb(176, 176, 176);
+  color: black;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
