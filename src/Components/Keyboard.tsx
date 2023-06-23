@@ -1,5 +1,4 @@
-import { memo, useState } from "react";
-import { MouseEvent } from "react";
+import { memo } from "react";
 import { useContextFunction } from "../MechanicsContext";
 
 
