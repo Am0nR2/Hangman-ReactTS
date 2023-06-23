@@ -19,8 +19,6 @@ type HangmanContextProps = {
 type HangmanContextChildrenType = {
     children: ReactNode
 }
-type Hangman = string[]
-
 const HangmanContext = createContext({} as HangmanContextProps)
 
 export function useContextFunction(){
@@ -28,14 +26,11 @@ export function useContextFunction(){
 }
 export function HangmanContextProvider({children}:HangmanContextChildrenType){
     // State Declorations
-        const [hangmanData, setHangmanData] = useState <Hangman> (randomQuestion)
         const [userAnswer, setUserAnswer] =useState <string[]> ([])
         const [gameStarted, setGameStarted] = useState<boolean>(false)
         const [keys, setKeys] = useState<{item:string, isHeld: boolean}[]>(keysArr) 
         const [falseAnswers, setFalseAnswers] = useState <string[]>([]) 
         const [userQuestion, setUserQuestion] = useState<string[]>(randomQuestion)
-        const [wonOrNot, setWonOrNot] = useState<boolean>(false)
-        const [correctAnswers, setCorrectAnswers] = useState<string[]>([])
         const [isWon, setIswon] = useState<boolean>(false)
         const [slapAudio] = useState(new Audio(Clap));
         // functions(){}
@@ -71,7 +66,7 @@ export function HangmanContextProvider({children}:HangmanContextChildrenType){
                 return key
             }
         }))
-        const [word, question] = randomQuestion
+        const word = randomQuestion[0]
         if(!word.toUpperCase().split("").includes((e.target as HTMLButtonElement).value)){
             setFalseAnswers(prevState=> [...prevState, (e.target as HTMLButtonElement).value])
         }
@@ -87,7 +82,6 @@ export function HangmanContextProvider({children}:HangmanContextChildrenType){
     }
     function endGame(isWon: boolean){
         if(!isWon){
-            setHangmanData(randomQuestion)
             setKeys(prevState=> prevState.map(key => ({
                 ...key, isHeld: false
             })))
@@ -98,7 +92,6 @@ export function HangmanContextProvider({children}:HangmanContextChildrenType){
     } else{
             slapAudio.pause();
             slapAudio.currentTime = 0;
-            setHangmanData(randomQuestion)
             setKeys(prevState=> prevState.map(key => ({
                 ...key, isHeld: false
             })))

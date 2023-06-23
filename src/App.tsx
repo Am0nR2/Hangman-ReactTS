@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Hangman from "./Components/Hangman";
 import Keyboard from "./Components/Keyboard";
 import UknownWords from "./Components/UknownWords";
@@ -9,11 +9,7 @@ import Confetti from 'react-confetti'
 function App() {
   const {getRandomQuestion, gameStarted, startGame, userWonGame, userQuestion ,userAnswer,isWon } = useContextFunction()
 
-  const [word ,question ] = getRandomQuestion()
-  
-
-
-
+  const question  = getRandomQuestion()[1]
   const wordToKnow = userQuestion[0].toUpperCase().split("").sort()
   const userWords = userAnswer.sort()
   const DoesUserKnow = wordToKnow.every(element =>  userWords.includes(element));
